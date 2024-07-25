@@ -13,9 +13,11 @@ const App: React.FC = () => {
 
   React.useEffect(() => {
     if (open) {
-      const storedCartItems = JSON.parse(localStorage.getItem('cart')) || [];
-      setCartItems(storedCartItems);
-      setLoading(false);
+      if (typeof window !== 'undefined') {
+        const storedCartItems = JSON.parse(localStorage.getItem('cart') || '[]');
+        setCartItems(storedCartItems);
+        setLoading(false);
+      }
     }
   }, [open]);
 
