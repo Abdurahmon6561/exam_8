@@ -13,12 +13,10 @@ const App: React.FC = () => {
 
   React.useEffect(() => {
     if (open) {
-      if (typeof window !== 'undefined') {
-        const cart = localStorage.getItem('cart');
-        const storedCartItems = cart ? JSON.parse(cart) : [];
-        setCartItems(storedCartItems);
-        setLoading(false);
-      }
+      const storedCartItems = localStorage.getItem("cart");
+      const parsedCartItems = storedCartItems ? JSON.parse(storedCartItems) : [];
+      setCartItems(parsedCartItems);
+      setLoading(false);
     }
   }, [open]);
 
@@ -37,9 +35,7 @@ const App: React.FC = () => {
   const handleDelete = (itemId: string) => {
     const updatedCartItems = cartItems.filter(item => item._id !== itemId);
     setCartItems(updatedCartItems);
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('cart', JSON.stringify(updatedCartItems));
-    }
+    localStorage.setItem('cart', JSON.stringify(updatedCartItems));
   };
 
   const handleNavigate = () => {
