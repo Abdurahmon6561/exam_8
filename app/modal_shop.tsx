@@ -4,6 +4,7 @@ import { Button, Modal } from 'antd';
 import { FaShoppingCart } from 'react-icons/fa';
 import { AiFillDelete } from 'react-icons/ai';
 import { useRouter } from 'next/navigation';  
+import Image from 'next/image';
 
 const App: React.FC = () => {
   const [open, setOpen] = React.useState<boolean>(false);
@@ -89,10 +90,12 @@ const App: React.FC = () => {
               <>
                 {cartItems.map(item => (
                   <div key={item._id} className="flex mb-2.5 items-center">
-                    <img 
+                    <Image 
                       src={item.image} 
                       alt={item.name} 
-                      className="w-[60px] h-[60px] mr-2.5" 
+                      width={60}
+                      height={60}
+                      className="mr-2.5" 
                     />
                     <div className="flex-grow">
                       <h4 className="m-0 text-base font-medium">{item.title}</h4>
