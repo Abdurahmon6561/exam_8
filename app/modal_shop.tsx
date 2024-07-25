@@ -21,7 +21,6 @@ const App: React.FC = () => {
       }
     }
   }, [open]);
-  
 
   const showLoading = () => {
     setOpen(true);
@@ -38,7 +37,9 @@ const App: React.FC = () => {
   const handleDelete = (itemId: string) => {
     const updatedCartItems = cartItems.filter(item => item._id !== itemId);
     setCartItems(updatedCartItems);
-    localStorage.setItem('cart', JSON.stringify(updatedCartItems));
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('cart', JSON.stringify(updatedCartItems));
+    }
   };
 
   const handleNavigate = () => {
