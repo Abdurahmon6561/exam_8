@@ -10,7 +10,6 @@ export default function Checkout() {
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
-    // Retrieve cart items from local storage
     const storedCartItems = JSON.parse(localStorage.getItem("cart")) || [];
     setCartItems(storedCartItems);
   }, []);

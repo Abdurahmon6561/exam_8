@@ -49,7 +49,7 @@ export function Header() {
             </div>
             <div className=" flex justify-between">
                 <h2 className=" font-bold text-xl p-2">Short by</h2>
-                <input type="text" placeholder="Default" className="w-[188px] h-[45px] text-center outline-none"/>
+                <inpuzzt type="text" placeholder="Default" className="w-[188px] h-[45px] text-center outline-none"/>
             </div>
         </div>
           </div>
