@@ -14,12 +14,14 @@ const App: React.FC = () => {
   React.useEffect(() => {
     if (open) {
       if (typeof window !== 'undefined') {
-        const storedCartItems = JSON.parse(localStorage.getItem('cart') || '[]');
+        const cart = localStorage.getItem('cart');
+        const storedCartItems = cart ? JSON.parse(cart) : [];
         setCartItems(storedCartItems);
         setLoading(false);
       }
     }
   }, [open]);
+  
 
   const showLoading = () => {
     setOpen(true);
